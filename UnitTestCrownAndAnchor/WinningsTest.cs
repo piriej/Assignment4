@@ -46,8 +46,8 @@ namespace UnitTestCrownAndAnchor
             int bet,
             int winnings,
             int total,
-            IDice die1, 
-            IDice die2, 
+            IDice die1,
+            IDice die2,
             IDice die3,
             IPlayer player)
         {
@@ -144,8 +144,8 @@ namespace UnitTestCrownAndAnchor
         }
 
 
-        [Theory, AutoNSubstituteData]
-        public void Ensure(/*Dice die1, Dice die2, Dice die3*/)
+        [Theory]
+        public void EnsurePlayerIsNotWinningTooFrequently()
         {
             var die1 = new Dice();
             var die2 = new Dice();
@@ -156,7 +156,7 @@ namespace UnitTestCrownAndAnchor
 
             // Choose a symbol from the playmat.
             var pick = Dice.RandomValue;
-           
+
             // Place a bet of $5
             const int bet = 5;
 
@@ -183,42 +183,21 @@ namespace UnitTestCrownAndAnchor
             }
 
             numMatches.Should().BeLessThan((int)Math.Round(0.125 * numturns));
-        } 
-
-    [Theory, AutoNSubstituteData]
-    public void TestGameDiceRandomness()
-    {
-        var dice = new Dice();
-        var values = new List<DiceValue>();
-
-        for (var i = 0; i < 100; i++)
-        {
-            values.Add(dice.roll());
         }
 
-        values.Distinct().Count().Should().Be(5);
+
+        [Theory, AutoNSubstituteData]
+        public void TestGameDiceRandomness()
+        {
+            var dice = new Dice();
+            var values = new List<DiceValue>();
+
+            for (var i = 0; i < 100; i++)
+            {
+                values.Add(dice.roll());
+            }
+
+            values.Distinct().Count().Should().Be(5);
+        }
     }
-
-
-
-    //[Theory, AutoNSubstituteData]
-    //public void Teststuff(Dice die1, Dice die2, Dice die3, Player player, int bet)
-    //{
-    //    //player.Limit = 0;
-    //    //balance - bet > limit
-
-    //    player.takeBet().Returns(true);
-
-    //    var game = new Game(die1, die2, die3);
-
-    //    var winnings = game.playRound(player, (DiceValue)die1.CurrentValue, bet);
-
-    //    winnings.Should().Be(bet);
-    //}
-
-    //private Player PlayerFixture()
-    //{
-
-    //}
-}
 }
