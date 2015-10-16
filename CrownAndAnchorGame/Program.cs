@@ -63,7 +63,7 @@ namespace CrownAndAnchorGame
                     {
                         try
                         {
-                            winnings = g.playRound(p, pick, bet);
+                            winnings = g.PlayRound(p, pick, bet);
                             cdv = g.CurrentDiceValues;
 
                             Console.WriteLine("Rolled {0} {1} {2}", cdv[0], cdv[1], cdv[2]);

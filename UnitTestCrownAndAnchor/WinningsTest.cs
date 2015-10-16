@@ -67,7 +67,7 @@ namespace UnitTestCrownAndAnchor
             var game = new Game(die1, die2, die3);
 
             // Act
-            var sut = game.playRound(player, pick, bet);
+            var sut = game.PlayRound(player, pick, bet);
 
             // Assert
             sut.Should().Be(winnings);
@@ -127,7 +127,7 @@ namespace UnitTestCrownAndAnchor
             {
                 numturns++;
                 IList<DiceValue> currentValues1 = new List<DiceValue>(game.CurrentDiceValues);
-                game.playRound(player, pick, bet);
+                game.PlayRound(player, pick, bet);
                 var currentValues2 = game.CurrentDiceValues;
 
                 try
@@ -169,7 +169,7 @@ namespace UnitTestCrownAndAnchor
             {
                 numturns++;
                 IList<DiceValue> currentValues1 = new List<DiceValue>(game.CurrentDiceValues);
-                game.playRound(player, pick, bet);
+                game.PlayRound(player, pick, bet);
                 var currentValues2 = game.CurrentDiceValues;
 
                 try
