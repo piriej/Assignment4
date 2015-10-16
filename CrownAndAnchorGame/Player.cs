@@ -14,7 +14,19 @@ namespace CrownAndAnchorGame
 
     }
 
-    public class Player
+    public interface IPlayer
+    {
+        string Name { get; }
+        int Balance { get; }
+        int Limit { get; set; }
+        bool balanceExceedsLimit();
+        bool balanceExceedsLimitBy(int amount);
+        void takeBet(int bet);
+        void receiveWinnings(int winnings);
+        string ToString();
+    }
+
+    public class Player : IPlayer
     {
         private string name;
         public string Name { get { return name; } }

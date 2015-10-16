@@ -11,26 +11,35 @@ namespace CrownAndAnchorGame
         CROWN, ANCHOR, HEART, DIAMOND, CLUB, SPADE
     }
 
-    public class Dice
+    public interface IDice
     {
-        private static readonly Random RANDOM = new Random();
+        DiceValue CurrentValue { get; }
+        string CurrentValueRepr { get; }
+        DiceValue roll();
+    }
+
+    public class Dice : IDice
+    {
+        //private static readonly Random RANDOM = new Random();
+
         public static readonly Array VALUES = Enum.GetValues(typeof(DiceValue));
 
         private static readonly Dictionary<DiceValue, string> VALUE_REPR_MAP =
-            new Dictionary<DiceValue, string>() { 
-                { DiceValue.CROWN,"Crown"}, 
-                { DiceValue.ANCHOR,"Anchor"}, 
-                { DiceValue.HEART,"Heart"}, 
-                { DiceValue.DIAMOND,"Diamond"}, 
-                { DiceValue.CLUB,"Club"}, 
-                { DiceValue.SPADE,"Spade"}, 
+            new Dictionary<DiceValue, string>() {
+                    { DiceValue.CROWN,"Crown"},
+                    { DiceValue.ANCHOR,"Anchor"},
+                    { DiceValue.HEART,"Heart"},
+                    { DiceValue.DIAMOND,"Diamond"},
+                    { DiceValue.CLUB,"Club"},
+                    { DiceValue.SPADE,"Spade"},
             };
 
         public static DiceValue RandomValue
         {
             get
             {
-                return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length-1));
+                Random RANDOM = new Random(Guid.NewGuid().GetHashCode());
+                return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length - 1));
             }
         }
 
@@ -50,8 +59,6 @@ namespace CrownAndAnchorGame
             get { return VALUE_REPR_MAP[currentValue]; }
         }
 
-
-
         public Dice()
         {
             currentValue = RandomValue;
@@ -59,7 +66,8 @@ namespace CrownAndAnchorGame
 
         public DiceValue roll()
         {
-            return RandomValue;
+            currentValue = RandomValue;
+            return currentValue;
         }
 
     }
