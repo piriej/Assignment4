@@ -5,6 +5,7 @@ using CrownAndAnchorGame;
 using FluentAssertions;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit;
+using Xunit;
 using Xunit.Extensions;
 using Xunit.Sdk;
 
@@ -186,7 +187,7 @@ namespace UnitTestCrownAndAnchor
         }
 
 
-        [Theory, AutoNSubstituteData]
+        [Fact]
         public void TestGameDiceRandomness()
         {
             var dice = new Dice();
@@ -196,8 +197,8 @@ namespace UnitTestCrownAndAnchor
             {
                 values.Add(dice.roll());
             }
-
-            values.Distinct().Count().Should().Be(5);
+            Console.WriteLine(string.Join(",", values.Distinct()));
+            values.Distinct().Count().Should().Be(6);
         }
     }
 }
