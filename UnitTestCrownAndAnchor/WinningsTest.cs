@@ -13,6 +13,8 @@ namespace UnitTestCrownAndAnchor
 {
     public class WinningsTest
     {
+        // Scenarios
+        // Parameter key: Picked, Dice1Value, Dice2Value, Dice3Value, InitialBalance, Bet, Winnings, TotalBalance
         public static IEnumerable<object[]> Lose
         {
             get { yield return new object[] { DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.ANCHOR, DiceValue.ANCHOR, 100, 5, 0, 95 }; }
@@ -145,7 +147,7 @@ namespace UnitTestCrownAndAnchor
         }
 
 
-        [Theory]
+        [Fact]
         public void EnsurePlayerIsNotWinningTooFrequently()
         {
             var die1 = new Dice();
