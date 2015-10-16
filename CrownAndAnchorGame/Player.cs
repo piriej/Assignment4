@@ -62,7 +62,7 @@ namespace CrownAndAnchorGame
 
         public bool balanceExceedsLimitBy(int amount)
         {
-            return (balance - amount > limit);
+            return (balance - amount >= limit);
         }
 
         public void takeBet(int bet)

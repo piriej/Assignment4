@@ -39,7 +39,7 @@ namespace CrownAndAnchorGame
             get
             {
                 Random RANDOM = new Random(Guid.NewGuid().GetHashCode());
-                return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length - 1));
+                return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length));
             }
         }
 
