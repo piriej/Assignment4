@@ -14,30 +14,30 @@ namespace UnitTestCrownAndAnchor
     {
         public static IEnumerable<object[]> Lose
         {
-            get { yield return new object[] { DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.ANCHOR, DiceValue.ANCHOR, 100, 5, 95 }; }
+            get { yield return new object[] { DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.ANCHOR, DiceValue.ANCHOR, 100, 5, 0, 95 }; }
         }
 
         public static IEnumerable<object[]> Win1Correct
         {
-            get { yield return new object[] { DiceValue.CLUB, DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.ANCHOR, 100, 5, 5, 110 }; }
+            get { yield return new object[] { DiceValue.CLUB, DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.ANCHOR, 100, 5, 10, 105 }; }
         }
 
         public static IEnumerable<object[]> Win2Correct
         {
-            get { yield return new object[] { DiceValue.CLUB, DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.CLUB, 100, 5, 10, 115 }; }
+            get { yield return new object[] { DiceValue.CLUB, DiceValue.CLUB, DiceValue.ANCHOR, DiceValue.CLUB, 100, 5, 15, 110 }; }
         }
 
         public static IEnumerable<object[]> Win3Correct
         {
-            get { yield return new object[] { DiceValue.CLUB, DiceValue.CLUB, DiceValue.CLUB, DiceValue.CLUB, 100, 5, 15, 120 }; }
+            get { yield return new object[] { DiceValue.CLUB, DiceValue.CLUB, DiceValue.CLUB, DiceValue.CLUB, 100, 5, 20, 115 }; }
         }
 
-        [Theory, AutoNSubstituteData]
+        [Theory]
         [AutoNSubstitutePropertyData("Lose")]
         [AutoNSubstitutePropertyData("Win1Correct")]
         [AutoNSubstitutePropertyData("Win2Correct")]
         [AutoNSubstitutePropertyData("Win3Correct")]
-        public void GivenRoundIsPlayed_WhenTheplayersPickMatchesNoDie_5DollarsIsDeductedFromTheBalance(
+        public void GivenGameRoundIsPlayed_WhenTheplayerWinsOrLosesAMatch_PaysOutAtTheCorrectRate(
             DiceValue pick,
             DiceValue dieValue1,
             DiceValue dieValue2,
@@ -71,6 +71,34 @@ namespace UnitTestCrownAndAnchor
 
             // Assert
             sut.Should().Be(winnings);
+        }
+
+        [Theory]
+        [AutoNSubstitutePropertyData("Lose")]
+        [AutoNSubstitutePropertyData("Win1Correct")]
+        [AutoNSubstitutePropertyData("Win2Correct")]
+        [AutoNSubstitutePropertyData("Win3Correct")]
+        public void GivenPlayerPlaysARound_WhenTheplayerWinsOrLosesAMatch_BalanceIncreases(
+         DiceValue pick,
+         DiceValue dieValue1,
+         DiceValue dieValue2,
+         DiceValue dieValue3,
+         int balance,
+         int bet,
+         int winnings,
+         int total,
+         string name
+            )
+        {
+            // Arrange.
+            var player = new Player(name, balance);
+
+            // Act : deduct bet and add winnings;
+            player.takeBet(bet);
+            player.receiveWinnings(winnings);
+
+            // Assert
+            player.Balance.Should().Be(total);
         }
 
 
