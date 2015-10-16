@@ -66,15 +66,15 @@ namespace CrownAndAnchorGame
                             winnings = g.PlayRound(p, pick, bet);
                             cdv = g.CurrentDiceValues;
 
-                            Console.WriteLine("Rolled {0} {1} {2}", cdv[0], cdv[1], cdv[2]);
+                            Console.WriteLine("Picked {3} and Rolled {0} {1} {2}", cdv[0], cdv[1], cdv[2], pick);
                             if (winnings > 0)
                             {
-                                Console.WriteLine("{0} won {1} balance now {2}", p.Name, winnings, p.Balance);
+                                Console.WriteLine("{0} bet {3} and won {1} balance now {2}", p.Name, winnings, p.Balance, bet);
                                 winCount++;
                             }
                             else
                             {
-                                Console.WriteLine("{0} lost {1} balance now {2}", p.Name, bet, p.Balance);
+                                Console.WriteLine("{0} bet {3} and lost {1} balance now {2}", p.Name, bet, p.Balance, bet);
                                 loseCount++;
                             }
                         }
