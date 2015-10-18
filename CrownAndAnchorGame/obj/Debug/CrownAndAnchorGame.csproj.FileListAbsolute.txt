@@ -1,0 +1,14 @@
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\bin\Debug\CrownAndAnchorGame.exe.config
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\bin\Debug\CrownAndAnchorGame.exe
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\bin\Debug\CrownAndAnchorGame.pdb
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\obj\Debug\CrownAndAnchorGame.exe
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\obj\Debug\CrownAndAnchorGame.pdb
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\bin\Debug\Moq.dll
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\bin\Debug\Moq.pdb
+C:\Users\jtulip\Source\Repos\CrownAndAnchorGame\CrownAndAnchorGame\bin\Debug\Moq.xml
+C:\projects\Assignment4\CrownAndAnchorGame\bin\Debug\CrownAndAnchorGame.exe.config
+C:\projects\Assignment4\CrownAndAnchorGame\obj\Debug\CrownAndAnchorGame.exe
+C:\projects\Assignment4\CrownAndAnchorGame\obj\Debug\CrownAndAnchorGame.pdb
+C:\projects\Assignment4\CrownAndAnchorGame\bin\Debug\CrownAndAnchorGame.exe
+C:\projects\Assignment4\CrownAndAnchorGame\bin\Debug\CrownAndAnchorGame.pdb
+C:\projects\Assignment4\CrownAndAnchorGame\obj\Debug\CrownAndAnchorGame.csprojResolveAssemblyReference.cache
